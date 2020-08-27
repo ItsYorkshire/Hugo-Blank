@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    {{ $style := resources.Get "sass/main.scss" }}
+
+        {{ $components := readDir "assets/css/components" }}
+        {{ range $components }}
+          {{ $component := resources.Get (printf "css/components/%s" .Name) }}
+          {{ $style = slice $component $style | resources.Concat .Name }}
+        {{ end }}
+
+
+    {{ $style = $style| resources.Fingerprint | resources.ToCSS | resources.Minify }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
+
+    <title>{{ .Title }}</title>
+  </head>
