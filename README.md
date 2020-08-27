@@ -14,3 +14,7 @@ Pull this Git and copy over the folders.. oh and delete this readme..  obviously
 As i say its a personal thing..  Might help others.. might not.
 
 Cheers Thumbs up
+
+Oh and a "Head.html" in a partials folder to get you going..
+
+Enjoy..
